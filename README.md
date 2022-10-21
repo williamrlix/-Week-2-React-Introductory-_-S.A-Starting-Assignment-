@@ -10,44 +10,83 @@ JavaScript Type Casting
 Typecasting in JavaScript means converting one data type to another data type i.e., the conversion of a string data type to Boolean or the conversion of an integer data type to string data type. The typecasting in JavaScript is also known as type conversion or type coercion.
 
 ==, ===
+
 == is a equal operator that use for check an equal on javascript
+
 === is a identical operator that check the variable if contains same information and same data types in javascript 
+
 example:
+
 #1 typeof
+
 whenever a variable’s type is in doubt, you can employ the typeof operator:
+
 typeof 1 //> “number”
+
 typeof “1” //> “string”
+
 typeof [1,2,3] //> “object”
+
 typeof {name: “john”, country: “usa”} //> “object”
+
 typeof true //> “boolean”
+
 typeof (1 === 1) //> “boolean”
+
 typeof undefined //> “undefined”
+
 typeof null //> “object”
+
 const f = () => 2
+
 typeof f //> “function”
+
 #2 Double Equals Versus Triple Equals
+
 The === mean “equality without type coercion”. Using the triple equals, the values must be equal in type as well.
+
 1 == “1” //> true
+
 1 === “1” //> false
+
 null == undefined //> true
+
 null === undefined //> false
+
 ‘0’ == false //> true
+
 ‘0’ === false //> false
+
 0 == false //> true
+
 0 === false //> false, because they are of a different type
+
 Note, you can use !== for checking inequality with type coercion:
+
 1 != "1" //> false
+
 1 !== "1" //> true
+
 #3 Checking for Falsiness
+
 Using the ! operator (called the “bang” operator) to check for falsiness, we notice the following:
+
 !null //> true
+
 !undefined //> true
+
 !0 //> true
+
 !"" //> true
+
 !false //> true
+
 ![] //> false
+
 !42 //> false
+
 !"hello world" //> false
+
 
 Answer the following questions:
 What is the **problem** of a loosely typed dynamic language, and what are the ways to **supplement** it?
