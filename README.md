@@ -156,7 +156,7 @@ The way to fix this easily is turn const a into global scope variable by replace
 
 # 7 I'm using the Amazon S3 static website feature but getting an Access Denied error. Why is this happening?
 
-Short description
+- Short description
 
 #If you're trying to host a static website using Amazon S3, but you're getting an Access Denied error, check the following requirements:
 Objects in the bucket must be publicly accessible.
