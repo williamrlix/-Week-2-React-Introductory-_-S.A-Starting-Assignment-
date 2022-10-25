@@ -171,7 +171,7 @@ Objects that are requested must exist in the S3 bucket.
 
 Amazon S3 Block Public Access must be disabled on the bucket and account level.
 
-#Resolution
+- Resolution
 Objects in the bucket must be publicly accessible
 
 S3 static website endpoint supports only publicly accessible content. To verify whether an object in your S3 bucket is publicly accessible, open the object's URL in a 
@@ -184,7 +184,7 @@ http://doc-example-bucket.s3-website-us-east-1.amazonaws.com/index.html
     
 If an Access Denied error is returned by the web browser or cURL command, then the object isn't publicly accessible. To allow public read access to your S3 object, create a bucket policy that allows public read access for all objects in the bucket.
 
-#3 bucket policy must allow access to the s3:GetObject action
+- 3 bucket policy must allow access to the s3:GetObject action
 Review your bucket policy, and make sure that there aren't any deny statements that block public read access to the s3:GetObject action. Even if you have an explicit allow statement for s3:GetObject in your bucket policy, confirm that there isn't a conflicting explicit deny statement. An explicit deny statement will always override an explicit allow statement.
 
 To review your bucket policy for s3:GetObject, perform the following steps:
@@ -199,7 +199,7 @@ To review your bucket policy for s3:GetObject, perform the following steps:
 
 5.    (Optional) Modify the bucket policy. For example, you can remove or edit statements that block public read access to s3:GetObject.
 
-#he AWS account that owns the bucket must also own the object
+- the AWS account that owns the bucket must also own the object
 To allow public read access to objects, the AWS account that owns the bucket must also own the objects. A bucket or object is owned by the account of the AWS Identity and Access Management (IAM) identity that created the bucket or object.
 
 Note: The object-ownership requirement applies to public read access granted by a bucket policy. It doesn't apply to public read access granted by the object's access control list (ACL).
@@ -236,7 +236,7 @@ aws s3 cp s3://DOC-EXAMPLE-BUCKET/index.html s3://DOC-EXAMPLE-BUCKET/index.html 
 
 You can also use S3 Object Ownership to grant the bucket owner automatic ownership of any objects uploaded by anonymous users or other AWS accounts.
 
-#ojects in the bucket can't be AWS KMS-encrypted
+- ojects in the bucket can't be AWS KMS-encrypted
 AWS KMS doesn't support anonymous requests. As a result, any Amazon S3 bucket that allows anonymous or public access will not apply to objects that are encrypted with AWS KMS. You must remove KMS encryption from the objects that you want to serve using the Amazon S3 static website endpoint.
 
 Note: Instead of using AWS KMS encryption, use AES-256 to encrypt your objects.
@@ -257,7 +257,7 @@ aws s3 cp s3://DOC-EXAMPLE-BUCKET/index.html s3://DOC-EXAMPLE-BUCKET/index.html 
 
 Warning: Copying the object over itself removes settings for storage-class and website-redirect-location. To maintain these settings in the new object, make sure to explicitly specify storage-class or website-redirect-location values in the copy request.
 
-#bjects that are requested must exist in the S3 bucket
+- bjects that are requested must exist in the S3 bucket
 If a user performing the request doesn’t have s3:ListBucket permissions, then the user gets an Access Denied error for missing objects.
 
 You can run the head-object AWS CLI command to check if an object exists in the bucket.
@@ -270,5 +270,5 @@ If the object doesn't exist in the bucket, then the Access Denied error is maski
 
 Note: It's not a security best practice to enable public s3:ListBucket access. Enabling public s3:ListBucket access allows users to see and list all objects in a bucket. This access exposes object metadata details (for example, key and size) to users even if the users don't have permissions for downloading the object.
 
-#amazon Block Public Access must be disabled on the bucket
+- amazon Block Public Access must be disabled on the bucket
 Amazon S3 Block Public Access settings can apply to individual buckets or AWS accounts. Confirm that there aren't any Amazon S3 Block Public Access settings applied to either your S3 bucket or AWS account. These settings can override permissions that allow public read access.
